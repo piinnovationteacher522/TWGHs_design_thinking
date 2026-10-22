@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>常識百搭｜同理心地圖</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: #dce8ee;
+    }
+    iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <!--
+    使用方式：
+    1. 把下面 APP_URL 改成你的 Google Apps Script「網頁應用程式」網址
+       （部署後長得像：https://script.google.com/macros/s/XXXX/exec）
+    2. 把此檔推到 GitHub，開啟 GitHub Pages（選此檔所在分支／資料夾）
+    3. 公開網址即可給學生使用；也可再被其他網站 iframe
+
+    注意：Apps Script 需設 XFrameOptionsMode.ALLOWALL（本專案 Code.gs 已設定）
+  -->
+  <script>
+    // ↓↓↓ 改成你的部署網址 ↓↓↓
+    const APP_URL = 'https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec';
+    // ↑↑↑ 改成你的部署網址 ↑↑↑
+
+    const frame = document.createElement('iframe');
+    frame.src = APP_URL;
+    frame.title = '同理心地圖';
+    frame.loading = 'eager';
+    frame.referrerPolicy = 'no-referrer-when-downgrade';
+    frame.allow = 'fullscreen';
+    document.body.appendChild(frame);
+  </script>
+
+  <!--
+    若要嵌到其他網頁，也可直接複製這段（把 src 換成你的網址）：
+
+    <iframe
+      src="https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec"
+      title="同理心地圖"
+      style="width:100%;height:100vh;border:0;"
+      loading="eager"
+      allow="fullscreen"
+    ></iframe>
+  -->
+</body>
+</html>
